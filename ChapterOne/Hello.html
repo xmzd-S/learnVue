@@ -15,6 +15,7 @@
     Vue.createApp(
         {
             // ES6中对象方法的简写，方法名：function(){}
+            // 对外暴漏的数据
             data(){
               return {
                   content: "hello,vue",
@@ -25,12 +26,14 @@
                   todo:""
               }
             },
+            //  生命周期函数
             mounted(){
               //   ES6中的箭头函数
               setInterval(
                   ()=>{this.count++},1000
                         )
             },
+            // 对外暴漏的方法
             methods:{
                 buttonClick(){
                     if (this.flag === "显示"){
@@ -45,6 +48,7 @@
                     this.todo = ''
                 }
             },
+            //  v- 指令的使用
             template: `<div v-if="display">{{content}},{{count}}</div>
                        <button v-on:click="buttonClick">{{flag}}</button>
                         <div v-for="item of todoList">{{item}}</div>
