@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../ChapterOne/lib/http_unpkg.com_vue@next.js"></script>
+</head>
+<body>
+<div id="root"></div>
+</body>
+</html>
+<script>
+  let app = Vue.createApp(
+          {
+            template: `
+              <div>price is {{price}},count is {{count}}, so total is {{total}}</div>
+            `,
+            data(){
+              return{
+                price: 10,
+                count: 5
+              }
+            },
+           computed:{
+              total(){
+                return this.price * this.count;
+              }
+           }
+          }
+  );
+  const vm = app.mount(`#root`);
+  console.log(vm.$data)
+</script>

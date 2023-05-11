@@ -17,12 +17,17 @@
                      <div v-bind:title="vBind">v-bind</div>
                      <div v-if="vIf">{{vIf}}</div>
                     <button v-on:click="vOn">点我</button>
+                    <div v-for="item in vFor">{{item}}</div>
+                    <div >{{vModel}}</div>
+                    <input type="text" v-model="vModel">
             `,
             data(){
               return{
                 vHtml:"<h1>v-html的使用</h1>",
                 vBind:"setTile",
-                vIf:true
+                vIf:true,
+                vFor:[1,2,3,4,5],
+                vModel:''
               }
             },
             methods:{
