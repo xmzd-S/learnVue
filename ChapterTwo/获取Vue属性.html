@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../ChapterOne/lib/http_unpkg.com_vue@next.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
+<script>
+  let app = Vue.createApp(
+          {
+            data(){
+              return{
+                content:"test"
+              }
+            }
+          }
+  );
+  const vm = app.mount(`#root`);
+  console.log(vm.$data)
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="../ChapterOne/lib/http_unpkg.com_vue@next.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>
+<script>
+  let app = Vue.createApp(
+          {
+            template:
+                    `<div v-html="vHtml"></div>
+                     <div v-bind:title="vBind">v-bind</div>
+                     <div v-if="vIf">{{vIf}}</div>
+                    <button v-on:click="vOn">点我</button>
+            `,
+            data(){
+              return{
+                vHtml:"<h1>v-html的使用</h1>",
+                vBind:"setTile",
+                vIf:true
+              }
+            },
+            methods:{
+              vOn(){
+                this.vIf=!this.vIf;
+              }
+            }
+          }
+  );
+  const vm = app.mount(`#root`);
+  console.log(vm.$data)
+</script>

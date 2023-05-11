@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../ChapterOne/lib/http_unpkg.com_vue@next.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>
+<script>
+  // 生命周期函数
+  let app = Vue.createApp({
+    template:`<div>{{message}}</div>`,
+    data(){
+      return{
+        message:'hello,world'
+      }
+    },
+    //在实例生成之前执行的函数
+    beforeCreate(){
+      console.log("beforeCreate生命周期函数 1")
+    },
+    //在实例生成之后执行的函数
+    created(){
+      console.log("created生命周期函数 2")
+    },
+    //在组件内容被渲染到页面之前执行的函数
+    beforeMount(){
+
+      console.log("beforeMount生命周期函数 3")
+      //获取不到内容
+      console.log(document.getElementById('root').innerHTML);
+    },
+    //在组件内容渲染到页面函数之后执行的函数.
+    mounted() {
+
+      console.log("mounted生命周期函数 4");
+      //是可以获取到内容的
+      console.log(document.getElementById('root').innerHTML);
+
+    },
+
+    template:`<div>{{message}}</div>`,
+    beforeUpdate(){
+      console.log("beforeUpdate生命周期函数 5");
+    },
+    updated(){
+      console.log("updated生命周期函数 6");
+    }
+  });
+  let vm = app.mount('#root');
+</script>
